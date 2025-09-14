@@ -72,16 +72,16 @@
             border: 2px solid #FFD700;
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
             position: relative;
+            overflow: hidden;
         }
 
-        .gekko-icon::after {
-            content: '🦎';
-            position: absolute;
-            right: -8px;
-            top: -5px;
-            font-size: 18px;
-            z-index: 2;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        .gekko-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 50%;
+            background: transparent;
         }
 
         .nav-links {
@@ -160,16 +160,16 @@
             box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
             margin: 0 auto 1rem;
             position: relative;
+            overflow: hidden;
         }
 
-        .hero-gekko::after {
-            content: '🦎';
-            position: absolute;
-            right: -15px;
-            top: -10px;
-            font-size: 40px;
-            z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        .hero-gekko img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 50%;
+            background: transparent;
         }
 
         .wall-street-quote {
@@ -283,6 +283,40 @@
             opacity: 0.8;
         }
 
+        /* News Item Image */
+        .news-image {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #4CAF50, #2E7D32);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 24px;
+            border: 2px solid #FFD700;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 8px;
+            background: transparent;
+        }
+
+        .news-with-image {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .news-text-content {
+            flex: 1;
+        }
+
         /* Sidebar */
         .sidebar {
             display: flex;
@@ -320,16 +354,16 @@
             border: 3px solid #FFD700;
             box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
             position: relative;
+            overflow: hidden;
         }
 
-        .token-logo::after {
-            content: '🦎';
-            position: absolute;
-            right: -12px;
-            top: -8px;
-            font-size: 32px;
-            z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        .token-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 50%;
+            background: transparent;
         }
 
         .token-price {
@@ -512,6 +546,14 @@
                 padding: 0.4rem 0.6rem;
                 font-size: 0.8rem;
             }
+
+            .news-with-image {
+                flex-direction: column;
+            }
+
+            .news-image {
+                margin: 0 auto 1rem;
+            }
         }
 
         /* Animation for news items */
@@ -526,7 +568,9 @@
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <div class="gekko-icon">GEK</div>
+                <div class="gekko-icon">
+                    <img src="images/gekko/gekko-logo.png" alt="GEKKO CASH" onerror="this.src='images/gekko/gekko-logo.jpg'; this.onerror=function(){this.parentNode.innerHTML='GEK';}">
+                </div>
                 GEKKO CASH
             </div>
             <div class="nav-links">
@@ -543,7 +587,9 @@
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
-                <div class="hero-gekko">GEK</div>
+                <div class="hero-gekko">
+                    <img src="images/gekko/gekko-hero.png" alt="GEKKO CASH HERO" onerror="this.src='images/gekko/gekko-hero.jpg'; this.onerror=function(){this.parentNode.innerHTML='GEK';}">
+                </div>
                 <h1 class="page-title">GEKKO CASH</h1>
                 <div class="wall-street-quote">"Greed is Good - Information is Power"</div>
                 <p class="page-subtitle">Where Gordon Gekko Meets Crypto Fun</p>
@@ -568,7 +614,9 @@
                 <!-- Gekko Token Info -->
                 <section class="sidebar-section gekko-token-info">
                     <h3 class="section-title" style="justify-content: center; color: #FFD700;">🪙 GEKKO CASH (GEK)</h3>
-                    <div class="token-logo">GEK</div>
+                    <div class="token-logo">
+                        <img src="images/gekko/gekko-token.png" alt="GEKKO TOKEN" onerror="this.src='images/gekko/gekko-token.jpg'; this.onerror=function(){this.parentNode.innerHTML='GEK';}">
+                    </div>
                     
                     <!-- About Gekko Cash -->
                     <div style="background: rgba(76, 175, 80, 0.1); border: 1px solid #4CAF50; border-radius: 10px; padding: 1rem; margin-bottom: 1rem; text-align: left;">
@@ -694,7 +742,8 @@
                     publishedAt: new Date().toISOString(),
                     source: "Gekko Intelligence",
                     url: "#",
-                    gekkoWisdom: "Information is power in any market"
+                    gekkoWisdom: "Information is power in any market",
+                    imageKey: "gekko-news-1"
                 },
                 {
                     title: "📈 Polygon Ecosystem Strengthens Entertainment Token Sector",
@@ -702,7 +751,8 @@
                     publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
                     source: "DeFi Analytics",
                     url: "#",
-                    gekkoWisdom: "Smart money follows smart infrastructure"
+                    gekkoWisdom: "Smart money follows smart infrastructure",
+                    imageKey: "polygon-news-1"
                 },
                 {
                     title: "🦎 Meme Token Evolution: From Jokes to Serious Entertainment",
@@ -710,7 +760,8 @@
                     publishedAt: new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString(),
                     source: "Crypto Culture",
                     url: "#",
-                    gekkoWisdom: "Entertainment has real value in the attention economy"
+                    gekkoWisdom: "Entertainment has real value in the attention economy",
+                    imageKey: "meme-news-1"
                 },
                 {
                     title: "💎 Diamond Hands Philosophy Gains Academic Recognition",
@@ -718,7 +769,8 @@
                     publishedAt: new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString(),
                     source: "Academic Research",
                     url: "#",
-                    gekkoWisdom: "Conviction beats speculation every time"
+                    gekkoWisdom: "Conviction beats speculation every time",
+                    imageKey: "diamond-hands-1"
                 },
                 {
                     title: "🚀 Uniswap DEX Volume Reaches New Heights",
@@ -726,7 +778,8 @@
                     publishedAt: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(),
                     source: "DEX Tracker",
                     url: "#",
-                    gekkoWisdom: "The future of finance is decentralized"
+                    gekkoWisdom: "The future of finance is decentralized",
+                    imageKey: "uniswap-news-1"
                 }
             ]
         };
@@ -759,6 +812,20 @@
             'update': '📢',
             'launch': '🚀',
             'new': '✨'
+        };
+
+        // News image mapping
+        const newsImageMap = {
+            'gekko-news-1': '🦎',
+            'polygon-news-1': '🔷',
+            'meme-news-1': '🎭',
+            'diamond-hands-1': '💎',
+            'uniswap-news-1': '🦄',
+            'bitcoin': '₿',
+            'ethereum': '⟠',
+            'defi': '🏦',
+            'trading': '📊',
+            'market': '💹'
         };
 
         // Main Gekko news loading function
@@ -835,7 +902,8 @@
                         ...article,
                         title: addGekkoEmojis(article.title),
                         content: cleanGekkoContent(article.content),
-                        gekkoWisdom: generateGekkoWisdom()
+                        gekkoWisdom: generateGekkoWisdom(),
+                        imageKey: generateImageKey(article.title)
                     }));
             }
 
@@ -908,6 +976,18 @@
             return `📰 ${title}`;
         }
 
+        function generateImageKey(title) {
+            if (!title) return 'gekko-news-1';
+            
+            const lowerTitle = title.toLowerCase();
+            for (const [keyword] of Object.entries(gekkoEmojiMap)) {
+                if (lowerTitle.includes(keyword)) {
+                    return keyword;
+                }
+            }
+            return 'gekko-news-1';
+        }
+
         function generateGekkoWisdom() {
             const wisdoms = [
                 "Information is the ultimate currency",
@@ -966,25 +1046,38 @@
             }
         }
 
-        // Display Gekko news with enhanced styling
+        // Display Gekko news with enhanced styling and images
         function displayGekkoNews(newsArray) {
             const newsContainer = document.getElementById('newsContainer');
             if (!newsContainer) return;
             
-            const newsHTML = newsArray.map((article, index) => `
-                <div class="news-item" onclick="openGekkoIntel('${article.url}')" 
-                     style="animation-delay: ${index * 0.15}s; opacity: 0; animation: fadeInNews 0.8s ease forwards;">
-                    <div class="news-header">
-                        <div class="news-title">${article.title}</div>
-                        <div class="news-time">${formatGekkoTime(article.publishedAt)}</div>
+            const newsHTML = newsArray.map((article, index) => {
+                const imageKey = article.imageKey || 'gekko-news-1';
+                const fallbackEmoji = newsImageMap[imageKey] || '📰';
+                
+                return `
+                    <div class="news-item" onclick="openGekkoIntel('${article.url}')" 
+                         style="animation-delay: ${index * 0.15}s; opacity: 0; animation: fadeInNews 0.8s ease forwards;">
+                        <div class="news-with-image">
+                            <div class="news-image">
+                                <img src="images/news/${imageKey}.png" alt="${article.title}" 
+                                     onerror="this.src='images/news/${imageKey}.jpg'; this.onerror=function(){this.parentNode.innerHTML='${fallbackEmoji}';}">
+                            </div>
+                            <div class="news-text-content">
+                                <div class="news-header">
+                                    <div class="news-title">${article.title}</div>
+                                    <div class="news-time">${formatGekkoTime(article.publishedAt)}</div>
+                                </div>
+                                <div class="news-content">${article.content}</div>
+                                <div class="news-source">
+                                    <div class="source-name">💰 ${article.source}</div>
+                                    <div class="gekko-wisdom">"${article.gekkoWisdom || generateGekkoWisdom()}"</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="news-content">${article.content}</div>
-                    <div class="news-source">
-                        <div class="source-name">💰 ${article.source}</div>
-                        <div class="gekko-wisdom">"${article.gekkoWisdom || generateGekkoWisdom()}"</div>
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
             
             newsContainer.innerHTML = newsHTML;
         }
