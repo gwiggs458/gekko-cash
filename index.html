@@ -757,9 +757,7 @@
         <section class="hero-section">
             <div class="hero-content">
                 <div class="hero-gekko-container">
-                    <img src="images/gekko/gekko-hero.png" alt="GEKKO CASH HERO" 
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="fallback-text" style="display: none;">GEK</div>
+                    <img src="images/gekko/gekko-hero.png" alt="GEKKO CASH HERO" onerror="this.src='images/gekko/gekko-hero.jpg'; this.onerror=function(){this.parentNode.innerHTML='<div class=\'fallback-text\'>GEK</div>';}">
                 </div>
                 <h1 class="page-title">GEKKO CASH</h1>
                 <div class="wall-street-quote">"Greed is Good - Information is Power"</div>
@@ -1387,34 +1385,14 @@
             content.classList.toggle('expanded');
         }
 
-        // Mock price update
-        function updatePrice() {
-            const priceElement = document.getElementById('livePrice');
-            const changeElement = document.getElementById('priceChange');
-            
-            if (priceElement && changeElement) {
-                // Mock price data
-                const price = (Math.random() * 0.001 + 0.0005).toFixed(6);
-                const change = (Math.random() * 20 - 10).toFixed(2);
-                
-                priceElement.textContent = `$${price}`;
-                changeElement.textContent = `24h Change: ${change}%`;
-                changeElement.className = `price-change ${change > 0 ? 'positive' : 'negative'}`;
-            }
-        }
-
         // Initialize system
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 Enhanced Gekko Cash Platform Loading...');
             
             loadGekkoNews();
-            updatePrice();
             
             // Auto-refresh news every 15 minutes
             setInterval(loadGekkoNews, 15 * 60 * 1000);
-            
-            // Update price every 30 seconds
-            setInterval(updatePrice, 30000);
             
             setTimeout(() => {
                 showMessage('💰 Welcome to Enhanced Gekko Cash Platform!', 'success');
