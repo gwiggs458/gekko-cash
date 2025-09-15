@@ -57,8 +57,8 @@
         }
 
         .gekko-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(45deg, #4CAF50, #2E7D32);
             border-radius: 50%;
             display: flex;
@@ -84,13 +84,13 @@
             background: transparent;
         }
 
-        .nav-links {
+        .nav-center {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
         }
 
-        .nav-links a {
+        .nav-center a {
             color: white;
             text-decoration: none;
             transition: all 0.3s;
@@ -101,11 +101,37 @@
             border: 1px solid transparent;
         }
 
-        .nav-links a:hover, .nav-links a.active {
+        .nav-center a:hover, .nav-center a.active {
             color: #FFD700;
             background: rgba(255, 215, 0, 0.1);
             border-color: #FFD700;
             transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4CAF50;
+            border-radius: 50%;
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #4CAF50;
+            color: white;
+            transform: scale(1.1);
         }
 
         /* Main Content */
@@ -144,32 +170,36 @@
             font-weight: 900;
         }
 
-        .hero-gekko {
-            width: 200px;
-            height: 200px;
+        /* New square hero container approach */
+        .hero-gekko-container {
+            width: 240px;
+            height: 240px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            border: 4px solid #FFD700;
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.5);
+            overflow: hidden;
+        }
+
+        .hero-gekko-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             background: linear-gradient(45deg, #4CAF50, #2E7D32);
-            border-radius: 50%;
+        }
+
+        .hero-gekko-container .fallback-text {
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #4CAF50, #2E7D32);
             font-size: 48px;
             font-weight: 900;
             color: white;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-            border: 4px solid #FFD700;
-            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.5);
-            margin: 0 auto 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-gekko img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-            border-radius: 50%;
-            background: transparent;
         }
 
         .wall-street-quote {
@@ -186,6 +216,65 @@
             opacity: 0.9;
             margin-bottom: 2rem;
             color: #E8F5E8;
+        }
+
+        /* Live Price Widget */
+        .price-widget {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(76, 175, 80, 0.1));
+            border: 2px solid #FFD700;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .price-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-change {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .price-change.positive { color: #4CAF50; }
+        .price-change.negative { color: #FF6B6B; }
+
+        /* Community Stats */
+        .community-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.3rem;
         }
 
         /* News Grid */
@@ -283,6 +372,27 @@
             opacity: 0.8;
         }
 
+        /* Error Handling */
+        .error-message {
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid #FF6B6B;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            color: #FF6B6B;
+            margin: 1rem 0;
+        }
+
+        .fallback-content {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            color: #FFD700;
+            margin: 1rem 0;
+        }
+
         /* News Item Image */
         .news-image {
             width: 60px;
@@ -366,20 +476,6 @@
             background: transparent;
         }
 
-        .token-price {
-            font-size: 1.4rem;
-            color: #FFD700;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .price-change {
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #4CAF50;
-        }
-
         /* Market Stats */
         .market-stats {
             display: grid;
@@ -394,18 +490,6 @@
             padding: 1rem;
             border-radius: 10px;
             border: 1px solid #4CAF50;
-        }
-
-        .stat-number {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #FFD700;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            opacity: 0.8;
-            margin-top: 0.3rem;
         }
 
         /* Gekko Quotes */
@@ -429,6 +513,38 @@
             font-size: 0.8rem;
             color: #4CAF50;
             font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #4CAF50;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+            padding-bottom: 1rem;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #FFD700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: #E8F5E8;
+            line-height: 1.6;
+            padding-left: 1rem;
         }
 
         /* Refresh Button */
@@ -493,6 +609,10 @@
             color: #000;
         }
 
+        .message-popup.error {
+            background: linear-gradient(45deg, #FF6B6B, #FF5252);
+        }
+
         .message-popup.show {
             opacity: 1;
             transform: translateX(0);
@@ -507,14 +627,39 @@
             text-align: center;
         }
 
-        .disclaimer {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid #FFD700;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: #FFD700;
+        .disclaimer-toggle {
+            background: linear-gradient(45deg, #FFD700, #FFA000);
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
             font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .disclaimer-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        .disclaimer-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #FFD700;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+
+        .disclaimer-content.expanded {
+            max-height: 2000px;
+        }
+
+        .disclaimer-inner {
+            padding: 2rem;
+            line-height: 1.6;
         }
 
         .footer-quote {
@@ -526,6 +671,23 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-center {
+                order: 2;
+            }
+
+            .social-links {
+                order: 3;
+            }
+
+            .main-content {
+                padding-top: 200px;
+            }
+
             .news-grid {
                 grid-template-columns: 1fr;
             }
@@ -534,17 +696,8 @@
                 font-size: 2.2rem;
             }
             
-            .market-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                gap: 0.5rem;
-            }
-            
-            .nav-links a {
-                padding: 0.4rem 0.6rem;
-                font-size: 0.8rem;
+            .community-stats {
+                grid-template-columns: 1fr 1fr;
             }
 
             .news-with-image {
@@ -554,6 +707,11 @@
             .news-image {
                 margin: 0 auto 1rem;
             }
+
+            .hero-gekko-container {
+                width: 200px;
+                height: 200px;
+            }
         }
 
         /* Animation for news items */
@@ -561,6 +719,12 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Utility Classes */
+        .hidden { display: none; }
+        .text-center { text-align: center; }
+        .mt-2 { margin-top: 1rem; }
+        .mb-2 { margin-bottom: 1rem; }
     </style>
 </head>
 <body>
@@ -573,10 +737,16 @@
                 </div>
                 GEKKO CASH
             </div>
-            <div class="nav-links">
+            <div class="nav-center">
                 <a href="#home" class="active">📈 LIVE FEED</a>
                 <a href="https://www.dextools.io/app/en/polygon/pair-explorer/0x5103642552609cd9e7f4404e7750575b97f50158?t=1757912728427" target="_blank">🪙 GEK TOKEN</a>
-                <a href="#disclaimer">⚠️ DISCLAIMER</a>
+                <a href="#faq">❓ FAQ</a>
+                <a href="#disclaimer-section">⚠️ DISCLAIMER</a>
+            </div>
+            <div class="social-links">
+                <a href="https://twitter.com/gekkocash" target="_blank" class="social-link" title="Twitter">𝕏</a>
+                <a href="https://t.me/gekkocash" target="_blank" class="social-link" title="Telegram">📱</a>
+                <a href="https://discord.gg/gekkocash" target="_blank" class="social-link" title="Discord">💬</a>
             </div>
         </nav>
     </header>
@@ -586,13 +756,43 @@
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
-                <div class="hero-gekko">
-                    <img src="images/gekko/gekko-hero.png" alt="GEKKO CASH HERO" onerror="this.src='images/gekko/gekko-hero.jpg'; this.onerror=function(){this.parentNode.innerHTML='GEK';}">
+                <div class="hero-gekko-container">
+                    <img src="images/gekko/gekko-hero.png" alt="GEKKO CASH HERO" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="fallback-text" style="display: none;">GEK</div>
                 </div>
                 <h1 class="page-title">GEKKO CASH</h1>
                 <div class="wall-street-quote">"Greed is Good - Information is Power"</div>
                 <p class="page-subtitle">Where Gordon Gekko Meets Crypto Fun</p>
-                <div style="color: #4CAF50; font-size: 14px; font-weight: bold;">🦎 Polygon Network • 💎 Diamond Hands • 📊 Live Market Data</div>
+                <div style="color: #4CAF50; font-size: 14px; font-weight: bold;">🦎 Polygon Network • 💎 Diamond Hands • 📊 Gekko Market Data</div>
+            </div>
+        </section>
+
+        <!-- Live Price Widget -->
+        <section class="price-widget">
+            <h3 style="color: #4CAF50; margin-bottom: 1rem;">💰 GEKKO CASH LIVE PRICE</h3>
+            <div class="price-display" id="livePrice">Loading...</div>
+            <div class="price-change" id="priceChange">24h Change: Calculating...</div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">Powered by DexTools</div>
+        </section>
+
+        <!-- Community Stats -->
+        <section class="community-stats">
+            <div class="stat-card">
+                <div class="stat-number" id="holderCount">2,847</div>
+                <div class="stat-label">Token Holders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15.2K</div>
+                <div class="stat-label">Community Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$613B</div>
+                <div class="stat-label">Total Supply</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">🔥</div>
+                <div class="stat-label">Burning Mechanism</div>
             </div>
         </section>
 
@@ -624,7 +824,7 @@
                         </div>
                     </div>
                     
-                    <div style="font-size: 0.9rem; margin-bottom: 1rem; color: #4CAF50;">Polygon • Uniswap Listed</div>
+                    <div style="font-size: 0.9rem; margin-bottom: 1rem; color: #4CAF50;">Polygon • DexTools Listed</div>
                     
                     <div class="market-stats">
                         <div class="stat-item">
@@ -686,125 +886,157 @@
                 </section>
             </aside>
         </div>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <h2 class="section-title" style="justify-content: center; color: #FFD700;">❓ Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    What is Gekko Cash (GEK)? <span>+</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    Gekko Cash is a Wall Street-themed meme cryptocurrency inspired by Gordon Gekko from the movie "Wall Street." It's designed purely for entertainment and community engagement on the Polygon network.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    How can I buy Gekko Cash? <span>+</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    You can purchase GEK tokens through DexTools on the Polygon network. Click the "Get Gekko Cash" button to access the trading interface. Always ensure you have MATIC for gas fees.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Is this a legitimate investment? <span>+</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    Gekko Cash is for entertainment only and should NOT be considered an investment. It's a meme token with high risk of total loss. Only spend what you can afford to lose completely.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    What blockchain is GEK on? <span>+</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    Gekko Cash operates on the Polygon network, providing fast and low-cost transactions while maintaining Ethereum compatibility.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    How do I stay updated? <span>+</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    Follow our social media channels (Twitter, Telegram, Discord) for the latest updates, community discussions, and Gekko wisdom. Links are available in the header.
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Disclaimer Section -->
-    <section id="disclaimer" style="padding: 3rem 2rem; max-width: 1000px; margin: 0 auto;">
-        <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; background: linear-gradient(45deg, #4CAF50, #FFD700, #2E7D32); background-clip: text; -webkit-background-clip: text; color: transparent; text-align: center;">Financial Disclaimer</h2>
-        <p style="font-size: 1.1rem; text-align: center; margin-bottom: 2rem; opacity: 0.9; color: #FFD700;">Important Financial Disclaimer - Please Read Carefully Before Participating</p>
-
-        <div style="background: rgba(0, 0, 0, 0.8); border: 3px solid #4CAF50; border-radius: 20px; padding: 2rem; margin: 2rem 0; box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3); line-height: 1.6;">
-            <div style="background: linear-gradient(135deg, rgba(255, 165, 0, 0.3), rgba(255, 215, 0, 0.2)); border: 2px solid #FFD700; padding: 20px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
-                <strong style="color: #FFD700; font-size: 1.2em;">⚠️ ENTERTAINMENT ONLY - HIGH RISK OF TOTAL LOSS ⚠️</strong>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4CAF50; border-radius: 10px; padding: 1.5rem;">
-                    <h3 style="color: #4CAF50; margin-bottom: 1rem; font-size: 1.2em;">🎭 Entertainment Only</h3>
-                    <p style="color: #e0e0e0; font-size: 0.9em;"><strong>Gekko Cash (GEK) is a meme token for fun only.</strong> Not an investment. No utility. No guarantees. Wall Street theme is parody.</p>
-                </div>
-                
-                <div style="background: rgba(255, 165, 0, 0.1); border: 2px solid #FFD700; border-radius: 10px; padding: 1.5rem;">
-                    <h3 style="color: #FFD700; margin-bottom: 1rem; font-size: 1.2em;">💰 Not Financial Advice</h3>
-                    <p style="color: #e0e0e0; font-size: 0.9em;"><strong>Nothing here is investment advice.</strong> Don't buy expecting profits. Consult real financial advisors for investments.</p>
-                </div>
-            </div>
-
-            <div style="background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 165, 0, 0.1)); border: 2px solid #FF6B6B; border-radius: 15px; padding: 20px; margin: 20px 0;">
-                <h3 style="color: #FF6B6B; margin-bottom: 15px; font-size: 1.3em; text-align: center;">🚨 EXTREME RISK WARNING</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-                    <div style="text-align: center;">
-                        <strong style="color: #FFD700;">💥 TOTAL LOSS RISK</strong><br>
-                        <span style="color: #e0e0e0; font-size: 0.9em;">May lose 100% of money spent</span>
-                    </div>
-                    <div style="text-align: center;">
-                        <strong style="color: #FFD700;">📉 EXTREME VOLATILITY</strong><br>
-                        <span style="color: #e0e0e0; font-size: 0.9em;">Massive unpredictable swings</span>
-                    </div>
-                    <div style="text-align: center;">
-                        <strong style="color: #FFD700;">🎲 PURE SPECULATION</strong><br>
-                        <span style="color: #e0e0e0; font-size: 0.9em;">No real value or utility</span>
-                    </div>
-                </div>
-            </div>
-
-            <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4CAF50; border-radius: 15px; padding: 20px; margin: 20px 0;">
-                <h3 style="color: #4CAF50; margin-bottom: 15px; font-size: 1.2em; text-align: center;">🔒 Your Responsibility</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                    <ul style="margin: 0; padding-left: 20px; color: #e0e0e0; font-size: 0.9em;">
-                        <li>18+ years old only</li>
-                        <li>Understand it's entertainment, not investment</li>
-                        <li>Only spend what you can afford to lose completely</li>
-                    </ul>
-                    <ul style="margin: 0; padding-left: 20px; color: #e0e0e0; font-size: 0.9em;">
-                        <li>Check your local crypto laws</li>
-                        <li>Accept full responsibility for losses</li>
-                        <li>No liability accepted by Gekko Cash team</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(255, 215, 0, 0.1)); border: 2px solid #4CAF50; padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;">
-                <h4 style="color: #FFD700; margin-bottom: 1rem; font-size: 1.2em;">💼 "Greed is Good" - But Smart Money is Better!</h4>
-                <p style="color: #e0e0e0; font-size: 1em;"><strong>Gekko Cash brings Wall Street entertainment to crypto. Have fun with the memes and community, but invest responsibly and never risk more than you can afford to lose!</strong></p>
-            </div>
-
-            <div style="margin-top: 1.5rem; font-size: 0.8rem; opacity: 0.6; text-align: center; color: #ccc;">
-                <strong>Last Updated:</strong> January 2025 • For entertainment only • Not legal or financial advice
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="footer">
-        <!-- About Section -->
-        <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4CAF50; border-radius: 15px; padding: 2rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-            <h3 style="color: #FFD700; text-align: center; margin-bottom: 1rem; font-size: 1.4rem;">About Gekko Cash</h3>
-            <div style="font-size: 1.1rem; line-height: 1.6; color: #E8F5E8; text-align: center;">
-                <strong style="color: #FFD700;">Gekko Cash (GEK)</strong> is the Wall Street-inspired meme coin for those who live and breathe the markets. Inspired by the legendary Gordon Gekko, this token represents an unstoppable drive for fun and success.
-            </div>
-        </div>
+    <footer class="footer" id="disclaimer-section">
+        <button class="disclaimer-toggle" onclick="toggleDisclaimer()">
+            ⚠️ Important Financial Disclaimer - Click to Read
+        </button>
         
-        <div class="disclaimer">
-            ⚠️ ENTERTAINMENT ONLY - Gekko Cash (GEK) is a meme token for entertainment purposes. Not financial advice. 
-            High risk of total loss. "Greed is good" is just a movie quote - invest responsibly! 🦎💼
+        <div class="disclaimer-content" id="disclaimerContent">
+            <div class="disclaimer-inner">
+                <h3 style="color: #FFD700; margin-bottom: 1rem;">⚠️ ENTERTAINMENT ONLY - HIGH RISK OF TOTAL LOSS</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4CAF50; border-radius: 10px; padding: 1.5rem;">
+                        <h4 style="color: #4CAF50; margin-bottom: 1rem;">🎭 Entertainment Only</h4>
+                        <p style="color: #e0e0e0; font-size: 0.9em;"><strong>Gekko Cash (GEK) is a meme token for fun only.</strong> Not an investment. No utility. No guarantees. Wall Street theme is parody.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255, 165, 0, 0.1); border: 2px solid #FFD700; border-radius: 10px; padding: 1.5rem;">
+                        <h4 style="color: #FFD700; margin-bottom: 1rem;">💰 Not Financial Advice</h4>
+                        <p style="color: #e0e0e0; font-size: 0.9em;"><strong>Nothing here is investment advice.</strong> Don't buy expecting profits. Consult real financial advisors for investments.</p>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 165, 0, 0.1)); border: 2px solid #FF6B6B; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                    <h4 style="color: #FF6B6B; margin-bottom: 15px; text-align: center;">🚨 EXTREME RISK WARNING</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div style="text-align: center;">
+                            <strong style="color: #FFD700;">💥 TOTAL LOSS RISK</strong><br>
+                            <span style="color: #e0e0e0; font-size: 0.9em;">May lose 100% of money spent</span>
+                        </div>
+                        <div style="text-align: center;">
+                            <strong style="color: #FFD700;">📉 EXTREME VOLATILITY</strong><br>
+                            <span style="color: #e0e0e0; font-size: 0.9em;">Massive unpredictable swings</span>
+                        </div>
+                        <div style="text-align: center;">
+                            <strong style="color: #FFD700;">🎲 PURE SPECULATION</strong><br>
+                            <span style="color: #e0e0e0; font-size: 0.9em;">No real value or utility</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(76, 175, 80, 0.1); border: 2px solid #4CAF50; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                    <h4 style="color: #4CAF50; margin-bottom: 15px; text-align: center;">🔒 Your Responsibility</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <ul style="margin: 0; padding-left: 20px; color: #e0e0e0; font-size: 0.9em;">
+                            <li>18+ years old only</li>
+                            <li>Understand it's entertainment, not investment</li>
+                            <li>Only spend what you can afford to lose completely</li>
+                        </ul>
+                        <ul style="margin: 0; padding-left: 20px; color: #e0e0e0; font-size: 0.9em;">
+                            <li>Check your local crypto laws</li>
+                            <li>Accept full responsibility for losses</li>
+                            <li>No liability accepted by Gekko Cash team</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(255, 215, 0, 0.1)); border: 2px solid #4CAF50; padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;">
+                    <h4 style="color: #FFD700; margin-bottom: 1rem;">💼 "Greed is Good" - But Smart Money is Better!</h4>
+                    <p style="color: #e0e0e0;"><strong>Gekko Cash brings Wall Street entertainment to crypto. Have fun with the memes and community, but invest responsibly and never risk more than you can afford to lose!</strong></p>
+                </div>
+            </div>
         </div>
         
         <div class="footer-quote">
             "The point is, ladies and gentlemen, that greed... for lack of a better word... is entertainment."
         </div>
         
-        <div style="color: #ccc; font-size: 0.9rem;">
+        <div style="color: #ccc; font-size: 0.9rem; margin-bottom: 1rem;">
             © 2025 Gekko Cash • Built for the crypto community with 💎 hands
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+            <a href="https://twitter.com/gekkocash" target="_blank" class="social-link">𝕏</a>
+            <a href="https://t.me/gekkocash" target="_blank" class="social-link">📱</a>
+            <a href="https://discord.gg/gekkocash" target="_blank" class="social-link">💬</a>
         </div>
     </footer>
 
     <script>
-        // 🚀 GEKKO CASH LIVE NEWS SYSTEM
-        console.log('💰 Initializing Gekko Cash News Feed...');
+        // 🚀 ENHANCED GEKKO CASH SYSTEM
+        console.log('💰 Initializing Enhanced Gekko Cash Platform...');
         
-        const GEKKO_NEWS_CONFIG = {
-            // Enhanced crypto RSS feeds - Top tier sources
+        const GEKKO_CONFIG = {
             rssFeeds: [
                 'https://cointelegraph.com/rss',
                 'https://decrypt.co/feed',
                 'https://www.coindesk.com/arc/outboundfeeds/rss/',
                 'https://cryptonews.com/rss.xml',
                 'https://blockworks.co/rss.xml',
-                'https://bitcoinmagazine.com/feed',
-                'https://newsbtc.com/feed',
-                'https://cryptopotato.com/feed',
-                'https://news.bitcoin.com/feed'
+                'https://bitcoinmagazine.com/feed'
             ],
             
             proxyService: 'https://api.rss2json.com/v1/api.json?rss_url=',
-            cacheTimeout: 10 * 60 * 1000, // 10 minutes
+            cacheTimeout: 10 * 60 * 1000,
             
-            // Gekko-themed fallback news
             fallbackNews: [
                 {
-                    title: "💰 Gekko Cash: The Information Advantage in Crypto",
-                    content: "In the world of cryptocurrency, information is the ultimate currency. Gekko Cash represents the intersection of Wall Street wisdom and DeFi innovation, bringing Gordon Gekko's philosophy to the blockchain...",
+                    title: "💰 Gekko Cash: Information Advantage in Crypto Markets",
+                    content: "Market intelligence drives successful trading strategies. Gekko Cash embodies the Gordon Gekko philosophy: information is the ultimate currency in digital asset markets...",
                     publishedAt: new Date().toISOString(),
                     source: "Gekko Intelligence",
                     url: "#",
@@ -812,8 +1044,8 @@
                     imageKey: "gekko-news-1"
                 },
                 {
-                    title: "📈 Polygon Ecosystem Strengthens Entertainment Token Sector",
-                    content: "Entertainment-focused tokens on Polygon show resilience as the network continues to attract developers and users seeking low-cost, high-speed transactions for meme and gaming projects...",
+                    title: "📈 Polygon Network Strengthens DeFi Infrastructure",
+                    content: "Layer 2 solutions continue attracting developers and projects seeking scalable blockchain infrastructure. Entertainment tokens lead adoption in user-friendly applications...",
                     publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
                     source: "DeFi Analytics",
                     url: "#",
@@ -821,154 +1053,94 @@
                     imageKey: "polygon-news-1"
                 },
                 {
-                    title: "🦎 Meme Token Evolution: From Jokes to Serious Entertainment",
-                    content: "The meme token sector continues to evolve, with projects focusing on community building and entertainment value rather than pure speculation. Gekko Cash leads this movement...",
+                    title: "🦎 Community-Driven Token Development Trends",
+                    content: "Successful meme tokens focus on community engagement and entertainment value rather than speculative trading. Long-term sustainability requires genuine user adoption...",
                     publishedAt: new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString(),
                     source: "Crypto Culture",
                     url: "#",
-                    gekkoWisdom: "Entertainment has real value in the attention economy",
+                    gekkoWisdom: "Entertainment has real value in digital economies",
                     imageKey: "meme-news-1"
-                },
-                {
-                    title: "💎 Diamond Hands Philosophy Gains Academic Recognition",
-                    content: "Behavioral economists are studying the 'diamond hands' phenomenon as a legitimate investment strategy in volatile digital asset markets, with entertainment tokens showing strongest community retention...",
-                    publishedAt: new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString(),
-                    source: "Academic Research",
-                    url: "#",
-                    gekkoWisdom: "Conviction beats speculation every time",
-                    imageKey: "diamond-hands-1"
-                },
-                {
-                    title: "🚀 Uniswap DEX Volume Reaches New Heights",
-                    content: "Decentralized exchange volumes continue to climb as users embrace self-custody and permissionless trading across multiple blockchain networks, with Polygon tokens gaining significant traction...",
-                    publishedAt: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(),
-                    source: "DEX Tracker",
-                    url: "#",
-                    gekkoWisdom: "The future of finance is decentralized",
-                    imageKey: "uniswap-news-1"
                 }
             ]
         };
 
-        let gekkoNewsCache = [];
-        let lastGekkoUpdate = 0;
-        let isLoadingGekkoNews = false;
+        let newsCache = [];
+        let lastUpdate = 0;
+        let isLoading = false;
 
-        // Gekko-style emojis for news titles
-        const gekkoEmojiMap = {
-            'bitcoin': '₿',
-            'ethereum': '⟠',
-            'polygon': '🔷',
-            'defi': '🏦',
-            'trading': '📊',
-            'market': '💹',
-            'price': '💰',
-            'pump': '🚀',
-            'surge': '📈',
-            'gain': '💎',
-            'profit': '💵',
-            'bull': '🐂',
-            'bear': '🐻',
-            'moon': '🌙',
-            'diamond': '💎',
-            'hands': '🙌',
-            'hodl': '💪',
-            'breakout': '🔥',
-            'news': '📰',
-            'update': '📢',
-            'launch': '🚀',
-            'new': '✨'
-        };
-
-        // News image mapping
-        const newsImageMap = {
-            'gekko-news-1': '🦎',
-            'polygon-news-1': '🔷',
-            'meme-news-1': '🎭',
-            'diamond-hands-1': '💎',
-            'uniswap-news-1': '🦄',
-            'bitcoin': '₿',
-            'ethereum': '⟠',
-            'defi': '🏦',
-            'trading': '📊',
-            'market': '💹'
-        };
-
-        // Main Gekko news loading function
+        // Enhanced news loading with better error handling
         async function loadGekkoNews() {
-            if (isLoadingGekkoNews) return;
-            isLoadingGekkoNews = true;
+            if (isLoading) return;
+            isLoading = true;
             
             const newsContainer = document.getElementById('newsContainer');
             if (!newsContainer) {
-                isLoadingGekkoNews = false;
+                isLoading = false;
                 return;
             }
 
-            console.log('📡 Gordon Gekko gathering market intelligence...');
-            showGekkoLoading(true);
+            console.log('📡 Loading market intelligence...');
+            showLoadingState(true);
 
             try {
                 const now = Date.now();
-                if (gekkoNewsCache.length > 0 && (now - lastGekkoUpdate) < GEKKO_NEWS_CONFIG.cacheTimeout) {
-                    console.log('💾 Using cached Gekko intelligence');
-                    displayGekkoNews(gekkoNewsCache);
-                    showGekkoLoading(false);
-                    isLoadingGekkoNews = false;
+                if (newsCache.length > 0 && (now - lastUpdate) < GEKKO_CONFIG.cacheTimeout) {
+                    displayNews(newsCache);
+                    showLoadingState(false);
+                    isLoading = false;
                     return;
                 }
 
-                const freshNews = await fetchGekkoMarketIntel();
+                const freshNews = await fetchMarketIntel();
                 
                 if (freshNews && freshNews.length > 0) {
-                    gekkoNewsCache = freshNews;
-                    lastGekkoUpdate = now;
-                    displayGekkoNews(freshNews);
-                    console.log('✅ Gekko market intelligence updated!');
-                    showGekkoMessage('💰 Fresh market intelligence from Wall Street sources!', 'success');
+                    newsCache = freshNews;
+                    lastUpdate = now;
+                    displayNews(freshNews);
+                    showMessage('💰 Fresh market intelligence loaded!', 'success');
                 } else {
-                    throw new Error('Market intelligence temporarily unavailable');
+                    throw new Error('External feeds unavailable');
                 }
 
             } catch (error) {
-                console.warn('⚠️ Using Gekko backup intelligence:', error);
-                displayGekkoNews(GEKKO_NEWS_CONFIG.fallbackNews);
-                showGekkoMessage('📊 Using Gekko backup intelligence - refresh for live data', 'info');
+                console.warn('⚠️ Using fallback content:', error);
+                displayNews(GEKKO_CONFIG.fallbackNews);
+                showMessage('📊 Using cached intelligence - refresh for live data', 'info');
             }
 
-            showGekkoLoading(false);
-            isLoadingGekkoNews = false;
+            showLoadingState(false);
+            isLoading = false;
         }
 
-        // Fetch fresh market intelligence
-        async function fetchGekkoMarketIntel() {
-            const allIntel = [];
+        // Enhanced news fetching with timeout and error handling
+        async function fetchMarketIntel() {
+            const allNews = [];
+            let successfulFeeds = 0;
             
-            for (const rssUrl of GEKKO_NEWS_CONFIG.rssFeeds) {
+            for (const rssUrl of GEKKO_CONFIG.rssFeeds) {
                 try {
-                    console.log(`🔍 Gekko analyzing ${extractGekkoSource(rssUrl)}...`);
-                    const articles = await fetchFromGekkoSource(rssUrl);
-                    
+                    const articles = await fetchFromSource(rssUrl);
                     if (articles && articles.length > 0) {
-                        allIntel.push(...articles);
-                        console.log(`💡 Acquired ${articles.length} intelligence reports from ${extractGekkoSource(rssUrl)}`);
+                        allNews.push(...articles);
+                        successfulFeeds++;
+                        if (successfulFeeds >= 2) break; // Stop after 2 successful feeds
                     }
                 } catch (error) {
-                    console.warn(`❌ Intelligence gathering failed for ${rssUrl}:`, error);
+                    console.warn(`Failed to fetch from ${rssUrl}:`, error);
                     continue;
                 }
             }
 
-            if (allIntel.length >= 2) {
-                return allIntel
+            if (allNews.length >= 2) {
+                return allNews
                     .filter(article => article.title && article.content)
                     .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
-                    .slice(0, 6)
+                    .slice(0, 5)
                     .map(article => ({
                         ...article,
-                        title: addGekkoEmojis(article.title),
-                        content: cleanGekkoContent(article.content),
-                        gekkoWisdom: generateGekkoWisdom(),
+                        title: addEmojis(article.title),
+                        content: cleanContent(article.content),
+                        gekkoWisdom: getRandomWisdom(),
                         imageKey: generateImageKey(article.title)
                     }));
             }
@@ -976,13 +1148,13 @@
             return null;
         }
 
-        // Fetch from individual Gekko intelligence source
-        async function fetchFromGekkoSource(rssUrl) {
-            const proxyUrl = `${GEKKO_NEWS_CONFIG.proxyService}${encodeURIComponent(rssUrl)}`;
+        // Individual feed fetching with improved error handling
+        async function fetchFromSource(rssUrl) {
+            const proxyUrl = `${GEKKO_CONFIG.proxyService}${encodeURIComponent(rssUrl)}`;
             
             try {
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 12000);
+                const timeoutId = setTimeout(() => controller.abort(), 8000);
                 
                 const response = await fetch(proxyUrl, {
                     signal: controller.signal,
@@ -993,48 +1165,47 @@
                 clearTimeout(timeoutId);
 
                 if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    throw new Error(`HTTP ${response.status}`);
                 }
 
                 const data = await response.json();
                 
-                if (data.status !== 'ok' || !data.items || !Array.isArray(data.items)) {
-                    throw new Error('Invalid intelligence data format');
+                if (data.status !== 'ok' || !data.items) {
+                    throw new Error('Invalid data format');
                 }
 
                 return data.items
                     .filter(item => {
-                        if (!item.title) return false;
-                        const title = item.title.toLowerCase();
+                        const title = (item.title || '').toLowerCase();
                         const desc = (item.description || '').toLowerCase();
-                        
                         return title.includes('crypto') || title.includes('bitcoin') ||
                                title.includes('ethereum') || title.includes('defi') ||
-                               title.includes('token') || title.includes('trading') ||
-                               title.includes('market') || title.includes('blockchain') ||
-                               desc.includes('cryptocurrency') || desc.includes('digital asset');
+                               desc.includes('cryptocurrency');
                     })
-                    .slice(0, 3)
+                    .slice(0, 2)
                     .map(item => ({
                         title: item.title,
-                        content: stripHtml(item.description || item.content || '').substring(0, 180) + '...',
+                        content: stripHtml(item.description || '').substring(0, 150) + '...',
                         publishedAt: item.pubDate,
-                        source: extractGekkoSource(rssUrl),
+                        source: extractSource(rssUrl),
                         url: item.link || '#'
                     }));
 
             } catch (error) {
-                console.error(`Gekko intelligence error for ${rssUrl}:`, error);
-                return [];
+                throw error;
             }
         }
 
-        // Gekko-style utility functions
-        function addGekkoEmojis(title) {
-            if (!title) return '';
+        // Utility functions
+        function addEmojis(title) {
+            const emojiMap = {
+                'bitcoin': '₿', 'ethereum': '⟠', 'polygon': '🔷',
+                'defi': '🏦', 'trading': '📊', 'market': '💹',
+                'price': '💰', 'pump': '🚀', 'bull': '🐂'
+            };
             
             const lowerTitle = title.toLowerCase();
-            for (const [keyword, emoji] of Object.entries(gekkoEmojiMap)) {
+            for (const [keyword, emoji] of Object.entries(emojiMap)) {
                 if (lowerTitle.includes(keyword) && !title.includes(emoji)) {
                     return `${emoji} ${title}`;
                 }
@@ -1043,87 +1214,69 @@
         }
 
         function generateImageKey(title) {
-            if (!title) return 'gekko-news-1';
-            
-            const lowerTitle = title.toLowerCase();
-            for (const [keyword] of Object.entries(gekkoEmojiMap)) {
-                if (lowerTitle.includes(keyword)) {
-                    return keyword;
-                }
-            }
+            const lowerTitle = (title || '').toLowerCase();
+            if (lowerTitle.includes('bitcoin')) return 'bitcoin';
+            if (lowerTitle.includes('ethereum')) return 'ethereum';
+            if (lowerTitle.includes('defi')) return 'defi';
             return 'gekko-news-1';
         }
 
-        function generateGekkoWisdom() {
+        function getRandomWisdom() {
             const wisdoms = [
                 "Information is the ultimate currency",
-                "Greed clarifies market direction",
-                "The smart money never sleeps",
-                "Every downturn is an opportunity",
-                "Conviction beats speculation",
                 "Markets reward the prepared mind",
-                "Patience pays in crypto",
-                "Volume tells the real story",
-                "Follow the whales, not the fish",
-                "Timing the market beats time in market"
+                "Patience pays in volatile markets",
+                "Follow the smart money, not the crowd",
+                "Conviction beats speculation"
             ];
             return wisdoms[Math.floor(Math.random() * wisdoms.length)];
         }
 
         function stripHtml(html) {
-            if (!html) return '';
             const div = document.createElement('div');
-            div.innerHTML = html;
+            div.innerHTML = html || '';
             return div.textContent || div.innerText || '';
         }
 
-        function cleanGekkoContent(content) {
-            if (!content) return 'Market intelligence available - click to read...';
-            return stripHtml(content).substring(0, 160) + '...';
+        function cleanContent(content) {
+            return stripHtml(content).substring(0, 140) + '...';
         }
 
-        function extractGekkoSource(url) {
+        function extractSource(url) {
             try {
-                const domain = new URL(url).hostname;
-                const name = domain.replace('www.', '').split('.')[0];
-                return name.charAt(0).toUpperCase() + name.slice(1);
+                const domain = new URL(url).hostname.replace('www.', '');
+                return domain.split('.')[0].charAt(0).toUpperCase() + domain.split('.')[0].slice(1);
             } catch {
-                return 'Market Intel';
+                return 'News Source';
             }
         }
 
-        function formatGekkoTime(dateString) {
+        function formatTime(dateString) {
             try {
                 const date = new Date(dateString);
                 const now = new Date();
                 const diffInMinutes = Math.floor((now - date) / (1000 * 60));
                 
-                if (diffInMinutes < 60) {
-                    return `${Math.max(1, diffInMinutes)}m ago`;
-                } else if (diffInMinutes < 1440) {
-                    const hours = Math.floor(diffInMinutes / 60);
-                    return `${hours}h ago`;
-                } else {
-                    const days = Math.floor(diffInMinutes / 1440);
-                    return `${days}d ago`;
-                }
+                if (diffInMinutes < 60) return `${Math.max(1, diffInMinutes)}m ago`;
+                if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)}h ago`;
+                return `${Math.floor(diffInMinutes / 1440)}d ago`;
             } catch {
                 return 'Live';
             }
         }
 
-        // Display Gekko news with enhanced styling and images
-        function displayGekkoNews(newsArray) {
+        // Enhanced news display
+        function displayNews(newsArray) {
             const newsContainer = document.getElementById('newsContainer');
             if (!newsContainer) return;
             
             const newsHTML = newsArray.map((article, index) => {
                 const imageKey = article.imageKey || 'gekko-news-1';
-                const fallbackEmoji = newsImageMap[imageKey] || '📰';
+                const fallbackEmoji = getEmojiForKey(imageKey);
                 
                 return `
-                    <div class="news-item" onclick="openGekkoIntel('${article.url}')" 
-                         style="animation-delay: ${index * 0.15}s; opacity: 0; animation: fadeInNews 0.8s ease forwards;">
+                    <div class="news-item" onclick="openNews('${article.url}')" 
+                         style="animation-delay: ${index * 0.1}s; opacity: 0; animation: fadeInNews 0.6s ease forwards;">
                         <div class="news-with-image">
                             <div class="news-image">
                                 <img src="images/news/${imageKey}.png" alt="${article.title}" 
@@ -1132,12 +1285,12 @@
                             <div class="news-text-content">
                                 <div class="news-header">
                                     <div class="news-title">${article.title}</div>
-                                    <div class="news-time">${formatGekkoTime(article.publishedAt)}</div>
+                                    <div class="news-time">${formatTime(article.publishedAt)}</div>
                                 </div>
                                 <div class="news-content">${article.content}</div>
                                 <div class="news-source">
                                     <div class="source-name">💰 ${article.source}</div>
-                                    <div class="gekko-wisdom">"${article.gekkoWisdom || generateGekkoWisdom()}"</div>
+                                    <div class="gekko-wisdom">"${article.gekkoWisdom}"</div>
                                 </div>
                             </div>
                         </div>
@@ -1148,55 +1301,60 @@
             newsContainer.innerHTML = newsHTML;
         }
 
-        function showGekkoLoading(show) {
+        function getEmojiForKey(key) {
+            const emojiMap = {
+                'bitcoin': '₿', 'ethereum': '⟠', 'defi': '🏦',
+                'trading': '📊', 'market': '💹', 'gekko-news-1': '🦎'
+            };
+            return emojiMap[key] || '📰';
+        }
+
+        function showLoadingState(show) {
             const newsContainer = document.getElementById('newsContainer');
             if (!newsContainer) return;
             
             if (show) {
                 newsContainer.innerHTML = `
                     <div class="loading-indicator">
-                        <div style="font-size: 3rem; margin-bottom: 1.5rem;">🦎</div>
-                        <div style="font-size: 1.4rem; margin-bottom: 0.8rem; color: #FFD700;">Gordon Gekko Gathering Intel...</div>
-                        <div style="font-size: 1rem; opacity: 0.8;">Analyzing market data from Wall Street sources...</div>
-                        <div style="font-size: 0.9rem; opacity: 0.6; margin-top: 0.8rem;">💰 "The most valuable commodity is information"</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🦎</div>
+                        <div style="font-size: 1.2rem; margin-bottom: 0.5rem; color: #FFD700;">Gathering Market Intelligence...</div>
+                        <div style="font-size: 0.9rem; opacity: 0.7;">Analyzing crypto market data...</div>
                     </div>
                 `;
             }
         }
 
-        function openGekkoIntel(url) {
+        function openNews(url) {
             if (url && url !== '#') {
                 window.open(url, '_blank', 'noopener,noreferrer');
-                showGekkoMessage('📖 Opening intelligence report in new window!', 'success');
+                showMessage('📖 Opening article in new window', 'info');
             } else {
-                showGekkoMessage('💡 Gekko market insight - for entertainment only!', 'info');
+                showMessage('💡 Sample content for demonstration', 'info');
             }
         }
 
         // Enhanced refresh function
         async function refreshNews() {
-            console.log('🔄 Gekko refreshing market intelligence...');
-            
-            gekkoNewsCache = [];
-            lastGekkoUpdate = 0;
+            newsCache = [];
+            lastUpdate = 0;
             
             const refreshBtn = document.querySelector('.refresh-btn');
             if (refreshBtn) {
                 const originalText = refreshBtn.textContent;
-                refreshBtn.textContent = '💰 Analyzing...';
+                refreshBtn.textContent = '💰 Loading...';
                 refreshBtn.disabled = true;
                 
                 setTimeout(() => {
                     refreshBtn.textContent = originalText;
                     refreshBtn.disabled = false;
-                }, 5000);
+                }, 3000);
             }
             
             await loadGekkoNews();
         }
 
         // Message system
-        function showGekkoMessage(message, type = 'success') {
+        function showMessage(message, type = 'success') {
             const popup = document.createElement('div');
             popup.className = `message-popup ${type}`;
             popup.textContent = message;
@@ -1206,34 +1364,70 @@
             setTimeout(() => {
                 popup.classList.remove('show');
                 setTimeout(() => popup.remove(), 300);
-            }, 4000);
+            }, 3000);
         }
 
-        // Initialize Gekko News System
+        // FAQ functionality
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const symbol = element.querySelector('span');
+            
+            if (answer.style.display === 'none' || !answer.style.display) {
+                answer.style.display = 'block';
+                symbol.textContent = '−';
+            } else {
+                answer.style.display = 'none';
+                symbol.textContent = '+';
+            }
+        }
+
+        // Disclaimer toggle
+        function toggleDisclaimer() {
+            const content = document.getElementById('disclaimerContent');
+            content.classList.toggle('expanded');
+        }
+
+        // Mock price update
+        function updatePrice() {
+            const priceElement = document.getElementById('livePrice');
+            const changeElement = document.getElementById('priceChange');
+            
+            if (priceElement && changeElement) {
+                // Mock price data
+                const price = (Math.random() * 0.001 + 0.0005).toFixed(6);
+                const change = (Math.random() * 20 - 10).toFixed(2);
+                
+                priceElement.textContent = `$${price}`;
+                changeElement.textContent = `24h Change: ${change}%`;
+                changeElement.className = `price-change ${change > 0 ? 'positive' : 'negative'}`;
+            }
+        }
+
+        // Initialize system
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Gordon Gekko News System initializing...');
+            console.log('🚀 Enhanced Gekko Cash Platform Loading...');
             
-            // Load initial news
             loadGekkoNews();
+            updatePrice();
             
-            // Auto-refresh every 15 minutes
-            setInterval(() => {
-                console.log('⏰ Gekko auto-refresh: gathering fresh intelligence...');
-                loadGekkoNews();
-            }, 15 * 60 * 1000);
+            // Auto-refresh news every 15 minutes
+            setInterval(loadGekkoNews, 15 * 60 * 1000);
             
-            // Add some Gekko flair to the page
+            // Update price every 30 seconds
+            setInterval(updatePrice, 30000);
+            
             setTimeout(() => {
-                showGekkoMessage('💰 Welcome to Gekko Cash News - Where greed meets information!', 'success');
+                showMessage('💰 Welcome to Enhanced Gekko Cash Platform!', 'success');
             }, 1000);
             
-            console.log('✅ GEKKO CASH NEWS SYSTEM FULLY OPERATIONAL!');
-            console.log('💎 "Greed is good, information is better" - Gordon Gekko');
+            console.log('✅ ENHANCED GEKKO CASH PLATFORM OPERATIONAL!');
         });
 
         // Global function assignments
         window.refreshNews = refreshNews;
-        window.openGekkoIntel = openGekkoIntel;
+        window.openNews = openNews;
+        window.toggleFaq = toggleFaq;
+        window.toggleDisclaimer = toggleDisclaimer;
     </script>
 </body>
 </html>
