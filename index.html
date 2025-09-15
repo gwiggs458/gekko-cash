@@ -170,7 +170,6 @@
             font-weight: 900;
         }
 
-        /* New square hero container approach */
         .hero-gekko-container {
             width: 240px;
             height: 240px;
@@ -218,8 +217,8 @@
             color: #E8F5E8;
         }
 
-        /* Live Price Widget */
-        .price-widget {
+        /* Trading Widget */
+        .trading-widget {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(76, 175, 80, 0.1));
             border: 2px solid #FFD700;
             border-radius: 15px;
@@ -228,21 +227,28 @@
             text-align: center;
         }
 
-        .price-display {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #FFD700;
-            margin-bottom: 0.5rem;
-        }
-
-        .price-change {
-            font-size: 1rem;
-            font-weight: bold;
+        .trading-widget h3 {
+            color: #4CAF50;
             margin-bottom: 1rem;
         }
 
-        .price-change.positive { color: #4CAF50; }
-        .price-change.negative { color: #FF6B6B; }
+        .trading-link {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: block;
+            padding: 1rem;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 10px;
+            border: 2px solid #4CAF50;
+            transition: all 0.3s;
+        }
+
+        .trading-link:hover {
+            background: rgba(76, 175, 80, 0.2);
+            transform: scale(1.02);
+        }
 
         /* Community Stats */
         .community-stats {
@@ -370,27 +376,6 @@
             color: #FFD700;
             font-style: italic;
             opacity: 0.8;
-        }
-
-        /* Error Handling */
-        .error-message {
-            background: rgba(255, 107, 107, 0.1);
-            border: 2px solid #FF6B6B;
-            border-radius: 10px;
-            padding: 1rem;
-            text-align: center;
-            color: #FF6B6B;
-            margin: 1rem 0;
-        }
-
-        .fallback-content {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid #FFD700;
-            border-radius: 10px;
-            padding: 1rem;
-            text-align: center;
-            color: #FFD700;
-            margin: 1rem 0;
         }
 
         /* News Item Image */
@@ -609,10 +594,6 @@
             color: #000;
         }
 
-        .message-popup.error {
-            background: linear-gradient(45deg, #FF6B6B, #FF5252);
-        }
-
         .message-popup.show {
             opacity: 1;
             transform: translateX(0);
@@ -719,12 +700,6 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        /* Utility Classes */
-        .hidden { display: none; }
-        .text-center { text-align: center; }
-        .mt-2 { margin-top: 1rem; }
-        .mb-2 { margin-bottom: 1rem; }
     </style>
 </head>
 <body>
@@ -766,31 +741,31 @@
             </div>
         </section>
 
-        <!-- Live Price Widget -->
-        <section class="price-widget">
-            <h3 style="color: #4CAF50; margin-bottom: 1rem;">💰 GEKKO CASH LIVE PRICE</h3>
-            <div class="price-display" id="livePrice">Loading...</div>
-            <div class="price-change" id="priceChange">24h Change: Calculating...</div>
-            <div style="font-size: 0.9rem; opacity: 0.8;">Powered by DexTools</div>
+        <!-- Trading Widget -->
+        <section class="trading-widget">
+            <h3>💰 GEKKO CASH TRADING</h3>
+            <a href="https://www.dextools.io/app/en/polygon/pair-explorer/0x5103642552609cd9e7f4404e7750575b97f50158?t=1757912728427" target="_blank" class="trading-link">
+                📊 Powered by DexTools - Click to Trade
+            </a>
         </section>
 
-        <!-- Community Stats -->
+        <!-- Community Goals -->
         <section class="community-stats">
             <div class="stat-card">
-                <div class="stat-number" id="holderCount">2,847</div>
-                <div class="stat-label">Token Holders</div>
+                <div class="stat-number">5,000</div>
+                <div class="stat-label">Token Holders Goal</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">15.2K</div>
-                <div class="stat-label">Community Members</div>
+                <div class="stat-number">5,000</div>
+                <div class="stat-label">Community Members Goal</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">$613B</div>
+                <div class="stat-number">613B</div>
                 <div class="stat-label">Total Supply</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">🔥</div>
-                <div class="stat-label">Burning Mechanism</div>
+                <div class="stat-number">💎</div>
+                <div class="stat-label">Fair Launch</div>
             </div>
         </section>
 
@@ -1015,17 +990,15 @@
     </footer>
 
     <script>
-        // 🚀 ENHANCED GEKKO CASH SYSTEM
-        console.log('💰 Initializing Enhanced Gekko Cash Platform...');
+        // Clean Gekko Cash News System
+        console.log('🚀 Gekko Cash Platform Loading...');
         
         const GEKKO_CONFIG = {
             rssFeeds: [
                 'https://cointelegraph.com/rss',
                 'https://decrypt.co/feed',
                 'https://www.coindesk.com/arc/outboundfeeds/rss/',
-                'https://cryptonews.com/rss.xml',
-                'https://blockworks.co/rss.xml',
-                'https://bitcoinmagazine.com/feed'
+                'https://cryptonews.com/rss.xml'
             ],
             
             proxyService: 'https://api.rss2json.com/v1/api.json?rss_url=',
@@ -1043,7 +1016,7 @@
                 },
                 {
                     title: "📈 Polygon Network Strengthens DeFi Infrastructure",
-                    content: "Layer 2 solutions continue attracting developers and projects seeking scalable blockchain infrastructure. Entertainment tokens lead adoption in user-friendly applications...",
+                    content: "Layer 2 solutions continue attracting developers seeking scalable blockchain infrastructure. Entertainment tokens lead adoption in user-friendly applications...",
                     publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
                     source: "DeFi Analytics",
                     url: "#",
@@ -1066,7 +1039,7 @@
         let lastUpdate = 0;
         let isLoading = false;
 
-        // Enhanced news loading with better error handling
+        // Load news function
         async function loadGekkoNews() {
             if (isLoading) return;
             isLoading = true;
@@ -1077,7 +1050,6 @@
                 return;
             }
 
-            console.log('📡 Loading market intelligence...');
             showLoadingState(true);
 
             try {
@@ -1089,7 +1061,7 @@
                     return;
                 }
 
-                const freshNews = await fetchMarketIntel();
+                const freshNews = await fetchNews();
                 
                 if (freshNews && freshNews.length > 0) {
                     newsCache = freshNews;
@@ -1101,30 +1073,26 @@
                 }
 
             } catch (error) {
-                console.warn('⚠️ Using fallback content:', error);
+                console.warn('Using fallback content:', error);
                 displayNews(GEKKO_CONFIG.fallbackNews);
-                showMessage('📊 Using cached intelligence - refresh for live data', 'info');
+                showMessage('📊 Using cached intelligence', 'info');
             }
 
             showLoadingState(false);
             isLoading = false;
         }
 
-        // Enhanced news fetching with timeout and error handling
-        async function fetchMarketIntel() {
+        async function fetchNews() {
             const allNews = [];
-            let successfulFeeds = 0;
             
-            for (const rssUrl of GEKKO_CONFIG.rssFeeds) {
+            for (const rssUrl of GEKKO_CONFIG.rssFeeds.slice(0, 2)) {
                 try {
                     const articles = await fetchFromSource(rssUrl);
                     if (articles && articles.length > 0) {
                         allNews.push(...articles);
-                        successfulFeeds++;
-                        if (successfulFeeds >= 2) break; // Stop after 2 successful feeds
+                        break;
                     }
                 } catch (error) {
-                    console.warn(`Failed to fetch from ${rssUrl}:`, error);
                     continue;
                 }
             }
@@ -1132,8 +1100,7 @@
             if (allNews.length >= 2) {
                 return allNews
                     .filter(article => article.title && article.content)
-                    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
-                    .slice(0, 5)
+                    .slice(0, 4)
                     .map(article => ({
                         ...article,
                         title: addEmojis(article.title),
@@ -1146,60 +1113,49 @@
             return null;
         }
 
-        // Individual feed fetching with improved error handling
         async function fetchFromSource(rssUrl) {
             const proxyUrl = `${GEKKO_CONFIG.proxyService}${encodeURIComponent(rssUrl)}`;
             
-            try {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 8000);
-                
-                const response = await fetch(proxyUrl, {
-                    signal: controller.signal,
-                    method: 'GET',
-                    headers: { 'Accept': 'application/json' }
-                });
-                
-                clearTimeout(timeoutId);
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 8000);
+            
+            const response = await fetch(proxyUrl, {
+                signal: controller.signal,
+                method: 'GET',
+                headers: { 'Accept': 'application/json' }
+            });
+            
+            clearTimeout(timeoutId);
 
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-
-                const data = await response.json();
-                
-                if (data.status !== 'ok' || !data.items) {
-                    throw new Error('Invalid data format');
-                }
-
-                return data.items
-                    .filter(item => {
-                        const title = (item.title || '').toLowerCase();
-                        const desc = (item.description || '').toLowerCase();
-                        return title.includes('crypto') || title.includes('bitcoin') ||
-                               title.includes('ethereum') || title.includes('defi') ||
-                               desc.includes('cryptocurrency');
-                    })
-                    .slice(0, 2)
-                    .map(item => ({
-                        title: item.title,
-                        content: stripHtml(item.description || '').substring(0, 150) + '...',
-                        publishedAt: item.pubDate,
-                        source: extractSource(rssUrl),
-                        url: item.link || '#'
-                    }));
-
-            } catch (error) {
-                throw error;
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
             }
+
+            const data = await response.json();
+            
+            if (data.status !== 'ok' || !data.items) {
+                throw new Error('Invalid data format');
+            }
+
+            return data.items
+                .filter(item => {
+                    const title = (item.title || '').toLowerCase();
+                    return title.includes('crypto') || title.includes('bitcoin') || title.includes('ethereum');
+                })
+                .slice(0, 2)
+                .map(item => ({
+                    title: item.title,
+                    content: stripHtml(item.description || '').substring(0, 150) + '...',
+                    publishedAt: item.pubDate,
+                    source: extractSource(rssUrl),
+                    url: item.link || '#'
+                }));
         }
 
-        // Utility functions
         function addEmojis(title) {
             const emojiMap = {
                 'bitcoin': '₿', 'ethereum': '⟠', 'polygon': '🔷',
-                'defi': '🏦', 'trading': '📊', 'market': '💹',
-                'price': '💰', 'pump': '🚀', 'bull': '🐂'
+                'defi': '🏦', 'trading': '📊', 'market': '💹'
             };
             
             const lowerTitle = title.toLowerCase();
@@ -1224,7 +1180,6 @@
                 "Information is the ultimate currency",
                 "Markets reward the prepared mind",
                 "Patience pays in volatile markets",
-                "Follow the smart money, not the crowd",
                 "Conviction beats speculation"
             ];
             return wisdoms[Math.floor(Math.random() * wisdoms.length)];
@@ -1263,7 +1218,6 @@
             }
         }
 
-        // Enhanced news display
         function displayNews(newsArray) {
             const newsContainer = document.getElementById('newsContainer');
             if (!newsContainer) return;
@@ -1325,13 +1279,12 @@
         function openNews(url) {
             if (url && url !== '#') {
                 window.open(url, '_blank', 'noopener,noreferrer');
-                showMessage('📖 Opening article in new window', 'info');
+                showMessage('📖 Opening article', 'info');
             } else {
                 showMessage('💡 Sample content for demonstration', 'info');
             }
         }
 
-        // Enhanced refresh function
         async function refreshNews() {
             newsCache = [];
             lastUpdate = 0;
@@ -1351,7 +1304,6 @@
             await loadGekkoNews();
         }
 
-        // Message system
         function showMessage(message, type = 'success') {
             const popup = document.createElement('div');
             popup.className = `message-popup ${type}`;
@@ -1365,7 +1317,6 @@
             }, 3000);
         }
 
-        // FAQ functionality
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
             const symbol = element.querySelector('span');
@@ -1379,29 +1330,26 @@
             }
         }
 
-        // Disclaimer toggle
         function toggleDisclaimer() {
             const content = document.getElementById('disclaimerContent');
             content.classList.toggle('expanded');
         }
 
-        // Initialize system
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Enhanced Gekko Cash Platform Loading...');
+            console.log('🚀 Gekko Cash Platform Loading...');
             
             loadGekkoNews();
             
-            // Auto-refresh news every 15 minutes
             setInterval(loadGekkoNews, 15 * 60 * 1000);
             
             setTimeout(() => {
-                showMessage('💰 Welcome to Enhanced Gekko Cash Platform!', 'success');
+                showMessage('💰 Welcome to Gekko Cash Platform!', 'success');
             }, 1000);
             
-            console.log('✅ ENHANCED GEKKO CASH PLATFORM OPERATIONAL!');
+            console.log('✅ GEKKO CASH PLATFORM OPERATIONAL!');
         });
 
-        // Global function assignments
         window.refreshNews = refreshNews;
         window.openNews = openNews;
         window.toggleFaq = toggleFaq;
