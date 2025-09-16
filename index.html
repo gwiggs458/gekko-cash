@@ -27,6 +27,15 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* Smooth scrolling and fixed header offset */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        #main-news-feed {
+            scroll-margin-top: 140px;
+        }
+
         /* Header */
         .header {
             position: fixed;
@@ -713,13 +722,13 @@
                 GEKKO CASH
             </div>
             <div class="nav-center">
-                <a href="#home" class="active">📈 LIVE FEED</a>
+                <a href="#main-news-feed" class="active">📈 LIVE FEED</a>
                 <a href="https://www.dextools.io/app/en/polygon/pair-explorer/0x5103642552609cd9e7f4404e7750575b97f50158?t=1757912728427" target="_blank">🪙 GEK TOKEN</a>
                 <a href="#faq">❓ FAQ</a>
                 <a href="#disclaimer-section">⚠️ DISCLAIMER</a>
             </div>
             <div class="social-links">
-                <a href="https://twitter.com/gekkocash" target="_blank" class="social-link" title="Twitter">𝕏</a>
+                <a href="https://x.com/home" target="_blank" class="social-link" title="Twitter">𝕏</a>
                 <a href="https://t.me/gekkocash" target="_blank" class="social-link" title="Telegram">📱</a>
                 <a href="https://discord.gg/gekkocash" target="_blank" class="social-link" title="Discord">💬</a>
             </div>
@@ -771,7 +780,7 @@
 
         <div class="news-grid">
             <!-- Main News Feed -->
-            <section class="main-news-feed">
+            <section class="main-news-feed" id="main-news-feed">
                 <h2 class="section-title">
                     📡 GEKKO CRYPTO INTELLIGENCE
                     <button class="refresh-btn" onclick="refreshNews()">💰 Refresh Feed</button>
@@ -1100,7 +1109,7 @@
             if (allNews.length >= 2) {
                 return allNews
                     .filter(article => article.title && article.content)
-                    .slice(0, 4)
+                    .slice(0, 6)
                     .map(article => ({
                         ...article,
                         title: addEmojis(article.title),
@@ -1142,7 +1151,7 @@
                     const title = (item.title || '').toLowerCase();
                     return title.includes('crypto') || title.includes('bitcoin') || title.includes('ethereum');
                 })
-                .slice(0, 2)
+                .slice(0, 3)
                 .map(item => ({
                     title: item.title,
                     content: stripHtml(item.description || '').substring(0, 150) + '...',
